@@ -6,7 +6,7 @@
 local nvchadconfig = {}
 
 nvchadconfig.base46 = {
-	theme = "onedark",
+	theme = "onenord",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },

@@ -11,12 +11,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local load_plugins = require "load_plugins"
+local load_plugins = require "plugins.init"
 local lazy = require "userConfigs.lazy"
 -- load plugins
 require("lazy").setup({
     -- load plugins from spec
-
     {
       "NvChad/NvChad",
       lazy = false,
@@ -36,7 +35,7 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 require "user_autocmds"
-
+require "configs.neovide"
 vim.schedule(function()
   require "mappings"
 end)

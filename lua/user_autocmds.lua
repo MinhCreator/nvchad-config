@@ -2,7 +2,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 --vim.cmd("TwilightEnable")
-
+vim.cmd("set clipboard=unnamed")
 vim.cmd(": set cmdheight=0")
 
 local stats = require("lazy").stats()
@@ -17,29 +17,24 @@ vim.fn.timer_start(math.floor(ms), function()
         vim.notify(" Happy coding!", "info", { title = "Neovim" })
     end)
 end)
-
-local api = vim.api
-local autofocus = vim.api.nvim_create_augroup("autofocus", { clear = true })
-api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufReadPost" }, {
-    pattern = "*",
-    group = autofocus,
-    callback = function()
-        return vim.cmd(": TwilightEnable")
-    end
-})
-
-api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
-    pattern = "*",
-    group = autofocus,
-    callback = function()
-        return vim.cmd(": TwilightDisable")
-    end
-})
--- api.nvim_create_autocmd({ "BufEnter", "BufRead"}, {
-    -- pattern = "*",
-    -- callback = function()
-        -- return vim.cmd(": set au")
-    -- end
+--
+-- local api = vim.api
+-- local autofocus = vim.api.nvim_create_augroup("autofocus", { clear = true })
+-- api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufReadPost" }, {
+--     pattern = "*",
+--     group = autofocus,
+--     callback = function()
+--         return vim.cmd(": TwilightEnable")
+--     end
 -- })
+
+-- api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+--     pattern = "*",
+--     group = autofocus,
+--     callback = function()
+--         return vim.cmd(": TwilightDisable")
+--     end
+-- })
+
 -- auto move {HomeDir}
 vim.cmd(": cd ~/ ")

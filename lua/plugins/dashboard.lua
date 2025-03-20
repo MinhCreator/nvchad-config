@@ -1,5 +1,66 @@
 math.randomseed(os.time())
 
+local db_theme_1 = {
+    {
+        type = "text",
+        val = " ███    ██ ███████  ██████  ██    ██ ██ ███    ███ ",
+        opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = " ████   ██ ██      ██    ██ ██    ██ ██ ████  ████ ",
+        opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = " ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██ ",
+        opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = " ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██ ",
+        opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = " ██   ████ ███████  ██████    ████   ██ ██      ██ ",
+        opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
+    },
+
+}
+local db_theme_2 = {
+    {
+        type = "text",
+        val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
+        opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
+        opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
+        opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
+        opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
+        opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
+    },
+    {
+        type = "text",
+        val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
+        opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
+    },
+}
+
 function pick_color()
     local r = math.random(0, 255)
     local g = math.random(0, 255)
@@ -57,12 +118,9 @@ local function check_greeting_color()
     elseif gr == "  Good evening" then
         return "#546BAB"
     elseif gr == "󰖔 Good night" then
-        return "#2E4482"
+        return "#387478"
     end
 end
-
---local color = pick_color()
---
 
 return {
     "goolord/alpha-nvim",
@@ -72,47 +130,23 @@ return {
 
     opts = function()
         local dashboard = require("alpha.themes.dashboard")
+        local header = vim.api.nvim_set_hl
         -- Define and set highlight groups for each logo line
-        vim.api.nvim_set_hl(0, "NeovimDashboardLogo1", { fg = "#EF476F" }) --{ fg = color }) --
-        vim.api.nvim_set_hl(0, "NeovimDashboardLogo2", { fg = "#F78C6B" }) --{ fg = color }) --
-        vim.api.nvim_set_hl(0, "NeovimDashboardLogo3", { fg = "#FFD166" }) --{ fg = color }) --
-        vim.api.nvim_set_hl(0, "NeovimDashboardLogo4", { fg = "#06D6A0" }) --{ fg = color }) --
-        vim.api.nvim_set_hl(0, "NeovimDashboardLogo5", { fg = "#118AB2" }) --{ fg = color }) --
-        vim.api.nvim_set_hl(0, "NeovimDashboardLogo6", { fg = "#073B4C" }) --{ fg = color }) --
-        vim.api.nvim_set_hl(0, "CodeEditor", { fg = "#fa3628" })           --{ fg = pick_color()  })
-        vim.api.nvim_set_hl(0, "getGreeting", { fg = check_greeting_color() })
+        header(0, "NeovimDashboardLogo1", { fg = "#EF476F" }) --{ fg = random_color() })
+        header(0, "NeovimDashboardLogo2", { fg = "#F78C6B" }) --{ fg = random_color() })
+        header(0, "NeovimDashboardLogo3", { fg = "#FFD166" }) --{ fg = random_color() })
+        header(0, "NeovimDashboardLogo4", { fg = "#06D6A0" }) --{ fg = random_color() })
+        header(0, "NeovimDashboardLogo5", { fg = "#118AB2" }) --{ fg = random_color() })
+        header(0, "NeovimDashboardLogo6", { fg = "#073B4C" }) --{ fg = random_color() })
+        header(0, "CodeEditor", { fg = "#fa3628" })           --{ fg = "#fa3628" })
+        header(0, "getGreeting", { fg = check_greeting_color() })
         dashboard.section.header.type = "group"
         dashboard.section.header.val = {
-            {
-                type = "text",
-                val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
-                opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
-            },
-            {
-                type = "text",
-                val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
-                opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
-            },
-            {
-                type = "text",
-                val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
-                opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
-            },
-            {
-                type = "text",
-                val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
-                opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
-            },
-            {
-                type = "text",
-                val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
-                opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
-            },
-            {
-                type = "text",
-                val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
-                opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
-            },
+            db_theme_1[1],
+            db_theme_1[2],
+            db_theme_1[3],
+            db_theme_1[4],
+            db_theme_1[5],
             {
                 type = "text",
                 val = "<-|[  Fastest Code Editor  ]|->",
@@ -130,40 +164,94 @@ return {
 
             {
                 type = "padding",
-                val = 1,
+                val = 0,
             },
-            --{
-            --type = "text",
-            --val = "𝙾𝚑 𝚝𝚑𝚎 𝚓𝚘𝚢 𝚘𝚏 𝚑𝚊𝚟𝚒𝚗𝚐 𝚢𝚘𝚞𝚛 𝚘𝚠𝚗 𝚌𝚞𝚜𝚝𝚘𝚖 𝚝𝚎𝚡𝚝 𝚎𝚍𝚒𝚝𝚘𝚛 :)",
-            --opts = { hl = "NeovimDashboardUsername", shrink_margin = false, position = "center" },
-            --},
         }
+        -- dashboard.section.header.val = {
+        --     {
+        --         type = "text",
+        --         val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
+        --         opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
+        --         opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
+        --         opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
+        --         opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
+        --         opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
+        --         opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "<-|[  Fastest Code Editor  ]|->",
+        --         opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
+        --     },
+
+        --     {
+        --         type = "text",
+        --         val = greeting,
+        --         opts = {
+        --             position = "center",
+        --             hl = "getGreeting",
+        --         },
+        --     },
+
+        --     {
+        --         type = "padding",
+        --         val = 1,
+        --     },
+        --     --{
+        --     --type = "text",
+        --     --val = "𝙾𝚑 𝚝𝚑𝚎 𝚓𝚘𝚢 𝚘𝚏 𝚑𝚊𝚟𝚒𝚗𝚐 𝚢𝚘𝚞𝚛 𝚘𝚠𝚗 𝚌𝚞𝚜𝚝𝚘𝚖 𝚝𝚎𝚡𝚝 𝚎𝚍𝚒𝚝𝚘𝚛 :)",
+        --     --opts = { hl = "NeovimDashboardUsername", shrink_margin = false, position = "center" },
+        --     --},
+        -- }
         -- stylua: ignore
-
-
+        local sectionVal = dashboard.section.buttons.val
+        local button = dashboard.button
         dashboard.section.buttons.val = {
-            dashboard.button("n", " " .. " New file", "<cmd> ene | startinsert <cr>"),
-            dashboard.button("f", " " .. " Search", "<cmd>Telescope find_files <cr>"),
-            dashboard.button("g", " " .. " Find text", "<cmd>Telescope live_grep <cr>"),
-            dashboard.button("w", " " .. " Notification histories", "<cmd> Telescope notify <cr>"),
-            dashboard.button("s", " " .. " session", "<cmd> lua require('persistence').load() <cr>"),
-            dashboard.button("r", " " .. " Recent files", "<cmd>Telescope oldfiles <cr>"),
-            dashboard.button("c", " " .. " Configure",
+            button("n", " " .. " New file", "<cmd> ene | startinsert <cr>"),
+            button("f", " " .. " Smart Search", "<cmd>lua Snacks.picker.smart() <cr>"),
+            button("s", " " .. " session", "<cmd> lua require('persistence').load() <cr>"),
+            button("r", " " .. " Recent files", "<cmd>Telescope oldfiles <cr>"),
+            button("c", " " .. " Configure",
                 "<cmd>lua require('telescope.builtin').find_files({prompt_title = 'Config File', cwd = vim.fn.stdpath('config')})<cr>"),
-            dashboard.button("t", " " .. " Theme", "<cmd> lua require('nvchad.themes').open()<cr>"),
-            dashboard.button("m", "󰙭 " .. " Mason component", "<cmd> Mason <cr>"),
-            dashboard.button("l", " " .. " Check Update", "<cmd> Lazy <cr>"),
-            dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
-            --dashboard.button("t", "T " .. " Terminal",    "<cmd> term <cr>"),
-            --dashboard.button("Z", " " .. " Open Directories", "<cmd> search_dirs<cr>"),
-            --dashboard.button("c", " " .. " Configure",          "<cmd> lua LazyVim.pick.config_files()() <cr>"),
-            --dashboard.button("s", " " .. " Recovery Session", [[<cmd> lua require("persistence").load() <cr>]]),
-            --dashboard.button("r", " " .. " Recent files", "<cmd> lua LazyVim.pick('oldfiles')() <cr>"),
+            button("t", " " .. " Theme", "<cmd> lua require('nvchad.themes').open()<cr>"),
+            button("k", " " .. " Keybindings", "<cmd>NvCheatsheet<cr>"),
+            button("l", " " .. " Plugins", "<cmd> Lazy <cr>"),
+            button("q", " " .. " Quit", "<cmd> qa <cr>"),
+            -- button("w", " " .. " Notification histories", "<cmd> Telescope notify <cr>"),
+            -- button("m", "󰙭 " .. " Mason component", "<cmd> Mason <cr>"),
+            -- button("g", " " .. " Find text", "<cmd>Telescope live_grep <cr>"),
+
         }
         --vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#311B92" }) -- Dark Indigo
-        vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#33abea" })  -- blue -{ fg = "#fafafa" })  -- white
-        vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#fa3628" }) -- red
-        vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#6A9C89" })   --"#edd691" 6A9C89})
+
+        local AlphaButtons = vim.api.nvim_set_hl
+        AlphaButtons(0, "AlphaButtons", { fg = "#33abea" }) -- blue -{ fg = "#fafafa" })  -- white
+
+        local shortcut = vim.api.nvim_set_hl
+        shortcut(0, "AlphaShortcut", { fg = "#fa3628" }) -- red
+
+        local footers = vim.api.nvim_set_hl
+        footers(0, "AlphaFooter", { fg = "#6A9C89" }) --"#edd691" 6A9C89})
         -- Footer
         local function footer()
             -- local stats = require("lazy").stats()
@@ -182,14 +270,15 @@ return {
                 "  " .. total_plugins .. " plugins" .. datetime .. nvim_version_info
         end
 
-        for _, button in ipairs(dashboard.section.buttons.val) do
+        for _, button in ipairs(sectionVal) do
             button.opts.hl = "AlphaButtons"
             button.opts.hl_shortcut = "AlphaShortcut"
         end
-        dashboard.section.header.opts.hl = "AlphaHeader"
-        dashboard.section.buttons.opts.hl = "AlphaButtons"
-        dashboard.section.footer.opts.hl = "AlphaFooter"
-        dashboard.section.footer.val = footer()
+        local dash = dashboard.section
+        dash.header.opts.hl = "AlphaHeader"
+        dash.buttons.opts.hl = "AlphaButtons"
+        dash.footer.opts.hl = "AlphaFooter"
+        dash.footer.val = footer()
         --dashboard.section.footer.opts.hl = "Constant"
         dashboard.opts.layout[1].val = 3
         return dashboard

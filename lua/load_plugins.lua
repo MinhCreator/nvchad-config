@@ -1,4 +1,0 @@
-local plugin = {
-}
-
-return plugin

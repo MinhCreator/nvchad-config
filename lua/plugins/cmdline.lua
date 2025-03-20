@@ -1,6 +1,7 @@
 return {
     {
         "folke/noice.nvim",
+        -- enabled = false,
         lazy = true,
         -- enabled = use_noice,
         dependencies = {
@@ -26,7 +27,28 @@ return {
                     enabled = false,
                 },
             },
+            views = {
+                cmdline_popup = {
+                    border = {
+                        style = "none",
+                        padding = { 1, 2 },
+                    },
+                    -- position = {
+                    --     row = 10,
+                    --     col = "55%",
+                    -- },
+                    -- size = {
+                    --     width = 60,
+                    --     height = "auto",
+                    -- },
+                    win_options = {
+                        winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                    },
+                },
+
+            },
         },
+
         keys = {
             {
                 "<S-Enter>",

@@ -9,8 +9,14 @@ return
         ensure_installed = {
             --"json",
             "lua",
-            --"markdown",
+            "markdown",
             --"markdown_inline",
+            "python",
+            "gdscript",
+            "html",
+            "css",
+            "gdshader",
+            "godot_resource"
         },
         highlight = {
             enable = true,
