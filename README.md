@@ -17,7 +17,7 @@ Refer to the [documentation](https://nvchad.com/docs/quickstart/install) to get 
 - a [Nerd Font](https://www.nerdfonts.com/) **_(optional)_**
 - a **C** compiler for `nvim-treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
 - NodeJs to using npm this dependencies for [Mason.nvim](https://github.com/williamboman/mason.nvim) **_(optional)_**
-- fd for snacks plugin **_(optional)_**
+- [fd](https://github.com/sharkdp/fd) for snacks plugin **_(optional)_**
 - [Ripgrep](https://github.com/BurntSushi/ripgrep) is required for grep searching with Telescope **_(OPTIONAL)_**.
 - GCC, Windows users must have [mingw](http://mingw-w64.org/downloads) installed and set on path.
 - Make, Windows users must have [GnuWin32](https://sourceforge.net/projects/gnuwin32) installed and set on path.
