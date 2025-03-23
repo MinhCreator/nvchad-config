@@ -26,7 +26,7 @@ local lazyconfig = {
         },
         border = "rounded",
         --backdrop = 100,
-        backdrop = 150,
+        backdrop = 190,
     },
     checker = { enabled = false, notify = true },
     change_detection = { enabled = true },

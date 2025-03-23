@@ -4,6 +4,3 @@ return {
     dependencies = { "nvzone/volt", },
     cmd = "TimerlyToggle"
 }
-
-  
-

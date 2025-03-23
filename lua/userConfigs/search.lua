@@ -1,9 +1,8 @@
-
 return {
-  
+
   require("telescope").setup({
     defaults = {
-       -- configure to use ripgrep
+      -- configure to use ripgrep
       vimgrep_arguments = {
         "rg",
         "--follow",        -- Follow symbolic links
@@ -30,16 +29,22 @@ return {
       initial_mode = "insert",
       selection_strategy = "reset",
       sorting_strategy = "ascending",
-      layout_strategy = "horizontal",
+      layout_strategy = "horizontal", --"vertical", --"horizontal",
       layout_config = {
         horizontal = {
-          prompt_position = "top",
+          prompt_position = "bottom",
           preview_width = 0.55,
           results_width = 0.8,
           --mirror = false,
+          height = 0.9,
+          preview_cutoff = 120,
+          -- prompt_position = "bottom",
+          width = 0.8
         },
         vertical = {
           mirror = false,
+          preview_width = 0.55,
+          results_width = 0.8,
         },
         width = 0.87, --0.87,
         height = 0.81,
@@ -90,6 +95,7 @@ return {
       },
     },
   }),
+
   require("telescope").load_extension("notify"),
   -- require("telescope").load_extension("noice"),
 }

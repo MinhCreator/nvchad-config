@@ -30,17 +30,33 @@ nvchadconfig.ui = {
 			tailwind = true, -- will work for css lsp too
 			icon = "󱓻",
 		},
+		border_style = "rounded",
 	},
 	statusline = {
+
+		enabled = false,
 		-- theme = "defaults",  , "cwd"
-		order = { "mode", "file", "git", "%=", "diagnostics", "lsp", "cursor" }, --"lsp_msg"
-		-- separator_style = "round",
+		order = { "mode", "file", "git", "%=", "diagnostics", "lsp", "cwd", "cursor" }, --"lsp_msg"
+		separator_style = "round",
 		modules = {},
 	},
-	-- tabufline = {
-	-- 	modules = {},
-	-- 	order = { "treeOffset", "buffers", "tabs", "diagnostics", "btns" },
-	-- }
+
+	lsp = { signature = true },
+
+	colorify = {
+		enabled = true,
+		mode = "virtual", -- fg, bg, virtual
+		virt_text = "󱓻 ",
+		highlight = { hex = true, lspvars = true, rbga = true, hsl = true },
+		modules = {},
+	},
+
+	tabufline = {
+		enabled = false,
+		-- 	modules = {},
+		-- 	order = { "treeOffset", "buffers", "tabs", "diagnostics", "btns" },
+		-- }
+	},
 }
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {

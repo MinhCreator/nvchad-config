@@ -1,6 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 local g = vim.g
-g.mapleader =" "
+g.mapleader = " "
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -10,8 +10,6 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-
-local load_plugins = require "plugins.init"
 local lazy = require "userConfigs.lazy"
 -- load plugins
 require("lazy").setup({
@@ -30,7 +28,7 @@ require("lazy").setup({
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
+-- dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"

@@ -23,20 +23,20 @@ map("n", "p", "<cmd>:echo expand('%:p')<cr>", opts(true, true, "Show file path")
 -- right click menu
 map("n", "<C-t>", function()
   require("minty.huefy").open() -- open("default")
-end, {})
+end, opts(false, true, "open right click menu"))
 
 -- mouse users + nvimtree users!
-map({ "n", "v" }, "<RightMouse>", function()
-  require('menu.utils').delete_old_menus()
+-- map({ "n", "v" }, "<RightMouse>", function()
+--   require('menu.utils').delete_old_menus()
 
-  vim.cmd.exec '"normal! \\<RightMouse>"'
+--   vim.cmd.exec '"normal! \\<RightMouse>"'
 
-  -- clicked buf
-  local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
-  local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+--   -- clicked buf
+--   local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+--   local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
 
-  require("menu").open(options, { mouse = true })
-end, {})
+--   require("menu").open(options, { mouse = true })
+-- end, {})
 
 -- Add this to your existing mappings
 -- map("n", "<leader>fc", function()
@@ -51,10 +51,7 @@ end, {})
 -- toggle home screen
 map("n", "<c-a>", "<cmd>Alpha<cr>", opts(true, true, "Toggle home screen"))
 -- map("n", "<c-a>", "<cmd>Alpha<cr>", { noremap = true, desc = "Toggle home screen" })
--- close buffer
-map("n", "<c-w>", function()
-  require("nvchad.tabufline").close_buffer()
-end, opts(true, true, "Close buffer"))
+
 
 map({ "n", "v" }, "<c-z>", "<cmd>undo<cr>", opts(true, true, "Undo"))
 map({ "n", "v" }, "<c-y>", "<cmd>redo<cr>", opts(true, true, "Redo"))
@@ -85,3 +82,8 @@ map('n', '<S-F6>',
 
 -- Toggle compiler results
 map('n', '<S-F7>', "<cmd>CompilerToggleResults<cr>", opts(true, true, 'Toggle compiler results'))
+
+--Toggle buffers
+map('n', "<Tab>", "<Cmd>BufferLineCycleNext<CR>", opts(true, true, "Next tab"))
+map('n', "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", opts(true, true, "Previous tab"))
+map("n", "<c-w>", "<cmd>bdelete<cr>", opts(true, true, "Close buffer"))

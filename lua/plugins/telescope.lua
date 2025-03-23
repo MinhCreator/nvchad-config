@@ -7,8 +7,7 @@ return {
         "nvim-telescope/telescope-live-grep-args.nvim",
         "nvim-telescope/telescope-fzf-native.nvim",
     },
-
-    config = function()
+    opts = function()
         require "userConfigs.search"
     end,
 }
