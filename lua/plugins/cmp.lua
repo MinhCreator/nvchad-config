@@ -9,10 +9,34 @@ return {
         "hrsh7th/cmp-calc",
     },
     config = function(_, opts)
+        local function border(hl_name)
+            return {
+                { "╭", hl_name },
+                { "─", hl_name },
+                { "╮", hl_name },
+                { "│", hl_name },
+                { "╯", hl_name },
+                { "─", hl_name },
+                { "╰", hl_name },
+                { "│", hl_name },
+            }
+        end
         local icon = require("userConfigs.iconCmp")
         local icon_menu = require("userConfigs.icons").ui
         local cmp = require("cmp")
         cmp.setup({
+            window = {
+                completion = {
+                    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│", },
+                    winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+                    scrollbar = false,
+                },
+                documentation = {
+                    border = border "CmpDocBorder",
+                    winhighlight = "Normal:CmpDoc",
+                },
+            },
+
             formatting = {
                 format = function(entry, vim_item)
                     -- Kind icons
@@ -28,13 +52,14 @@ return {
                 end,
             },
             sources = {
-                { name = 'nvim_lsp_signature_help' },
+                -- { name = 'nvim_lsp_signature_help' },
                 { name = "nvim_lsp" },
+                { name = "nvim_lua" },
                 { name = "buffer" },
                 { name = "path" },
                 { name = "crates" },
                 { name = "calc" },
-                -- { name = "luasnip" },
+                { name = "luasnip" },
             },
 
             mapping = cmp.mapping.preset.insert({

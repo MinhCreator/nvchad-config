@@ -122,7 +122,7 @@ return {
       cmp.setup.cmdline("/", {
         preselect = "none",
         completion = {
-          completeopt = "menu,preview,menuone,noselect",
+          completeopt = "menu,preview,menuone,select",
         },
         mapping = mapping,
         sources = {
@@ -138,7 +138,7 @@ return {
       cmp.setup.cmdline(":", {
         preselect = "none",
         completion = {
-          completeopt = "menu,preview,menuone,noselect",
+          completeopt = "menu,preview,menuone,select",
         },
         mapping = mapping,
         sources = cmp.config.sources({

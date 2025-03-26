@@ -16,15 +16,16 @@ local lsp_defaults = {
   "cssls",
   "lua_ls",
   "emmet_ls",
-  "pyright", }
+  "pyright",
+}
 
 -- lsp with multiple language server config
 for _, lsp in ipairs(lsp_defaults) do
-  lspconfig[lsp].setup({
+  lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-  })
+  }
 end
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {

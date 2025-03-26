@@ -2,6 +2,7 @@ local icon = require 'userConfigs.iconCmp'
 return {
     "hedyhli/outline.nvim",
     lazy = true,
+    event = "LspAttach",
     cmd = { "Outline", "OutlineOpen" },
     keys = { -- Example mapping to toggle outline
         { "<S-o>", "<cmd>Outline<CR>", desc = "Toggle outline" },

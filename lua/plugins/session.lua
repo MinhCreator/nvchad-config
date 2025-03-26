@@ -1,6 +1,6 @@
 return {
-    "folke/persistence.nvim",
-    -- lazy = true,
-    opts = {},
-
+  "folke/persistence.nvim",
+  -- lazy = true,
+  opts = {},
+  
 }

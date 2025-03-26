@@ -29,4 +29,8 @@ if vim.g.neovide then
   vim.g.neovide_underline_automatic_scaling = false
   vim.o.guifont = "JetBrainsMono_NF:h11:#e-subpixelantialias"
   vim.opt.termguicolors = true
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_refresh_rate = 55
+  vim.g.neovide_refresh_rate_idle = 35
+  vim.g.neovide_remember_window_size = true
 end

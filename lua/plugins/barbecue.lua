@@ -1,7 +1,7 @@
 return {
     "utilyre/barbecue.nvim",
     lazy = true,
-    event = "LspAttach",
+    event = { "LspAttach", "VeryLazy", "BufReadPre" },
     dependencies = {
         "SmiteshP/nvim-navic",
     },

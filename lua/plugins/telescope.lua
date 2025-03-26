@@ -8,6 +8,12 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
     },
     opts = function()
-        require "userConfigs.search"
+        return require "userConfigs.telescope"
+    end,
+    configs = function(_, opts)
+        local telescopes = require "telescope"
+        telescopes.setup(opts)
+        -- telescopes.load_extension "themes"
+        -- telescopes.load_extension "terms"
     end,
 }

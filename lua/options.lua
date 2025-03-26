@@ -76,8 +76,8 @@ opt.scrolloff = 8
 -- Place a column line
 opt.colorcolumn = "80"
 
-if vim.fn.has("win32") == 1 then
-  vim.opt.shell = vim.fn.executable "pwsh" and "pwsh" or 'powershell'
+if vim.fn.has "win32" == 1 then
+  vim.o.shell = "powershell.exe"
 else
   return
 end
@@ -103,11 +103,11 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave", "FocusLost" 
   group = autosave,
   callback = function(ctx)
     -- conditions that donnot do autosave
-    local disabled_ft = { "acwrite", "oil", "Alpha" }
+    local disabled_ft = { "acwrite", "oil", "Alpha", "alpha" }
     if
         not vim.bo.modified
         or fn.findfile(ctx.file, ".") == "" -- a new file
-        or ctx.file:match("wezterm.lua")
+        or ctx.file:match "wezterm.lua"
         or vim.tbl_contains(disabled_ft, vim.bo[ctx.buf].ft)
     then
       return
@@ -117,11 +117,11 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave", "FocusLost" 
     if not ok then
       return
     end
-    local msg = "File Saved " .. os.date("%H:%M:%S")
+    local msg = "File Saved " .. os.date "%H:%M:%S"
     if not queued then
-      vim.cmd("silent w")
+      vim.cmd "silent w"
       api.nvim_buf_set_var(ctx.buf, "autosave_queued", true)
-      vim.notify(msg, "warn", { title = "AutoSave  " })
+      vim.notify(msg, "warn", { title = "File Saved  " })
     end
 
     local block = api.nvim_buf_get_var(ctx.buf, "autosave_block")
@@ -139,3 +139,23 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave", "FocusLost" 
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
+-- disable colorcolumn
+local cc_default_hi = vim.api.nvim_get_hl_by_name("ColorColumn", true)
+vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufEnter" }, {
+  callback = function()
+    local cc = tonumber(vim.api.nvim_win_get_option(0, "colorcolumn"))
+    if cc ~= nil then
+      local lines = vim.api.nvim_buf_get_lines(0, vim.fn.line "w0", vim.fn.line "w$", true)
+      local max_col = 0
+      for _, line in pairs(lines) do
+        max_col = math.max(max_col, vim.fn.strdisplaywidth(line))
+      end
+      if max_col <= cc then
+        vim.api.nvim_set_hl(0, "ColorColumn", { bg = "None" })
+      else
+        vim.api.nvim_set_hl(0, "ColorColumn", cc_default_hi)
+      end
+    end
+  end,
+})

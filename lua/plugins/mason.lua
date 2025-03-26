@@ -24,6 +24,7 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        lazy = true,
         event = "VeryLazy",
         dependencies = { "nvim-lspconfig" },
         config = function()
@@ -32,6 +33,7 @@ return {
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
+        lazy = true,
         event = "VeryLazy",
         config = function()
             require("userConfigs.mason-tool-installer")
