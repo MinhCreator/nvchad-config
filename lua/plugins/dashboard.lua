@@ -61,14 +61,14 @@ local db_theme_2 = {
     },
 }
 
-function pick_color()
+local function pick_color()
     local r = math.random(0, 255)
     local g = math.random(0, 255)
     local b = math.random(0, 255)
     return string.format("#%02X%02X%02X", r, g, b)
 end
 
-function random_color()
+local function random_color()
     local hex_col_def = "#"
 
     for i = 1, 6 do
