@@ -25,14 +25,14 @@ end)
 
 -- local show_keys = vim.api.nvim_create_augroup("show_keys", { clear = true })
 -- local bool = vim.bo.filetype
--- api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufReadPre" }, {
+-- api.nvim_create_autocmd({ "BufReadPre" }, {
 --     pattern = "*",
 --     group = show_keys,
 --     callback = function()
---         if bool ~= "alpha" then
---             return vim.cmd(": ShowkeysToggle")
---         else
+--         if bool == "alpha" then
 --             return
+--         else
+--             return vim.cmd(": ShowkeysToggle")
 --         end
 --     end
 

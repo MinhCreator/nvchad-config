@@ -16,15 +16,15 @@ return {
                 FIX = {
                     icon = " ", -- icon used for the sign, and in search results
                     color = "error", -- can be a hex color, or a named color (see below)
-                    alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "glitch" }, -- a set of other keywords that all map to this FIX keywords
+                    alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "glitch", "fix", "fixme", "bug", "issue" }, -- a set of other keywords that all map to this FIX keywords
                     -- signs = false, -- configure signs for some keywords individually
                 },
-                TODO = { icon = " ", color = "info" },
-                HACK = { icon = " ", color = "hint" },
+                TODO = { icon = " ", color = "info", alt = { "TODO", "task", "todo", "TASK" } },
+                HACK = { icon = " ", color = "hint", alt = { "HACK", "HACKING", "hack", "hacking" } },
                 WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "warn" } },
-                PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "optim" } },
-                NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-                TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+                PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "optim", "performance", "optimize", "perf" } },
+                NOTE = { icon = " ", color = "hint", alt = { "INFO", "info", "note", "hint", "HINT" } },
+                TEST = { icon = "󰙨", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
                 PENCIL = { icon = "󰏪 ", color = "pen", alt = { "PENCIL", "PEN", "pen", "pencil" } }
             },
             gui_style = {

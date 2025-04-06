@@ -54,9 +54,9 @@ map("n", "<c-a>", "<cmd>Alpha<cr>", opts(true, true, "Toggle home screen"))
 map({ "n", "v" }, "<C-z>", "<cmd>undo<cr>", opts(true, true, "Undo"))
 map({ "n", "v" }, "<C-y>", "<cmd>redo<cr>", opts(true, true, "Redo"))
 
-map({ "n", "v" }, "<C-c>", '"+y', opts(true, false, "Copy to clipboard"))
-map({ "n", "v" }, "<C-v>", '"+p', opts(true, false, "Paste from clipboard"))
-map({ "n", "v" }, "<C-x>", '"+x', opts(true, false, "Cut from clipboard"))
+map({ "n", "v", "i" }, "<C-c>", '"+y', opts(true, false, "Copy to clipboard"))
+map({ "n", "v", "i" }, "<C-v>", '"+p', opts(true, false, "Paste from clipboard"))
+map({ "n", "v", "i" }, "<C-x>", '"+x', opts(true, false, "Cut from clipboard"))
 
 -- toggle notify
 map("n", "<S-n>", "<cmd>Telescope notify<cr>", opts(true, true, "Toggle notify"))

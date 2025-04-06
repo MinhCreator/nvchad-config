@@ -1,30 +1,35 @@
 -- Bubbles config for lualine
 local colors = {
-  blue = "#80a0ff",
+  blue = "#61AFEF",
   cyan = "#79dac8",
   black = "#080808",
   white = "#c6c6c6",
-  red = "#ff5189",
-  green = "#46fa6a",
+  red = "#F85874",
+  green = "#98C379",
   grey = "#444544",
   yellow = "#ECBE7B",
+  dark_grey = "#2F353F",
+  dark_red = "#A8545E",
 }
 
 local bubbles_theme = {
   normal = {
     a = { fg = colors.black, bg = colors.green },
     b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white },
+    c = { fg = colors.white, bg = colors.dark_grey },
   },
 
   insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
+  visual = { a = { fg = colors.black, bg = colors.yellow } },
+  replace = { a = { fg = colors.black, bg = colors.dark_red } },
 
   inactive = {
     a = { fg = colors.white, bg = colors.black },
     b = { fg = colors.white, bg = colors.black },
     c = { fg = colors.white },
+  },
+  winbar = {
+    -- z = { fg = colors.blue, bg = nil },
   },
 }
 local icons = require "userConfigs.icons"
@@ -53,6 +58,44 @@ local mode = {
   end,
 }
 
+local short_mode = {
+  "mode",
+  right_padding = 5,
+  -- separator = {
+  -- left = "",
+  -- right = "",
+  -- },
+  -- right_padding = 3,
+  fmt = function(str)
+    local Nvim_mode = vim.api.nvim_get_mode()["mode"]
+    if Nvim_mode == "n" then
+      return "N"
+    elseif Nvim_mode == "i" then
+      return "I"
+    elseif Nvim_mode == "v" then
+      return "V"
+    elseif Nvim_mode == "R" then
+      return "R"
+    end
+    return icons.ui.Neovim .. " " .. str
+  end,
+}
+
+local custom_lsp = {
+  'lsp_status',
+  icon = '󰌘', -- f013
+  symbols = {
+    -- Standard unicode symbols to cycle through for LSP progress:
+    spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+    -- Standard unicode symbol for when LSP is done:
+    done = '✓',
+    -- Delimiter inserted between LSP names:
+    separator = ' ',
+  },
+  -- List of LSP names to ignore (e.g., `null-ls`):
+  ignore_lsp = {},
+}
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand "%:t") ~= 1
@@ -77,12 +120,7 @@ local git_file_status = {
   },
   cond = conditions.hide_in_width,
 }
-local map = function()
-  if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
-    return '⌨ ' .. vim.b.keymap_name
-  end
-  return ''
-end
+
 
 return {
   require("lualine").setup {
@@ -117,7 +155,7 @@ return {
         "startuptime",
       },
       refresh = {         -- sets how often lualine should refresh it's contents (in ms)
-        statusline = 500, -- The refresh option sets minimum time that lualine tries
+        statusline = 150, -- The refresh option sets minimum time that lualine tries
         tabline = 1000,   -- to maintain between refresh. It's not guarantied if situation
         winbar = 1000,    -- arises that lualine needs to refresh itself before this time
         -- it'll do it.
@@ -128,11 +166,9 @@ return {
     },
     sections = {
       lualine_a = {
-        mode,
-        -- {
-        -- separator = { left = "|" },
-        -- right_padding = 5,
-        -- },
+        -- short_mode,
+        "mode",
+
       },
       lualine_b = {
         { "branch", icon = "󰊢 " },
@@ -190,13 +226,15 @@ return {
             --   },
           },
         },
-        { "lsp_status" },
+        -- { "lsp_status" },
+        custom_lsp,
       },
       lualine_y = {
         { "searchcount" },
         {
           "filetype",
-          icon = { align = "left" },
+          -- icon = { align = "right" },
+          icon_only = true,
           -- ingnore_filetypes = { "alpha" },
           -- colored = true,
         },
@@ -228,6 +266,14 @@ return {
         },
       },
     },
+    -- winbar = {
+    --   lualine_a = {},
+    --   lualine_b = {},
+    --   lualine_c = {},
+    --   lualine_x = {},
+    --   lualine_y = {},
+    --   -- lualine_z = { { "filetype", icon_only = true, bg = nil } },
+    -- },
     tabline = {},
     extensions = {},
   },

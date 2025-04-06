@@ -7,6 +7,8 @@ return {
         "hrsh7th/cmp-path",    -- path completions
         "hrsh7th/cmp-cmdline", -- cmdline completions
         "hrsh7th/cmp-calc",
+        -- "tailwind-tools",
+        -- "onsails/lspkind-nvim",
     },
     config = function(_, opts)
         local function border(hl_name)
@@ -50,6 +52,9 @@ return {
 
                     return vim_item
                 end,
+                -- require("lspkind").cmp_format({
+                --     before = require("tailwind-tools.cmp").lspkind_format
+                -- }),
             },
             sources = {
                 -- { name = 'nvim_lsp_signature_help' },

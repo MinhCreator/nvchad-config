@@ -14,7 +14,7 @@ return {
         event = "BufReadPre",
         lazy = true,
         opts = {
-            snippetDir = vim.fn.stdpath("config") .. "/snippets/project-specific",
+            snippetDir = vim.fn.stdpath("config") .. "/snippets",
         },
     },
 }

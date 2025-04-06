@@ -142,11 +142,12 @@ return {
         header(0, "getGreeting", { fg = check_greeting_color() })
         dashboard.section.header.type = "group"
         dashboard.section.header.val = {
-            db_theme_1[1],
-            db_theme_1[2],
-            db_theme_1[3],
-            db_theme_1[4],
-            db_theme_1[5],
+            db_theme_2[1],
+            db_theme_2[2],
+            db_theme_2[3],
+            db_theme_2[4],
+            db_theme_2[5],
+            db_theme_2[6],
             {
                 type = "text",
                 val = "<-|[  Fastest Code Editor  ]|->",
@@ -235,7 +236,7 @@ return {
                 "<cmd>lua require('telescope.builtin').find_files({prompt_title = 'Config File', cwd = vim.fn.stdpath('config')})<cr>"),
             button("t", " " .. " Theme", "<cmd> lua require('nvchad.themes').open()<cr>"),
             button("k", " " .. " Keybindings", "<cmd>NvCheatsheet<cr>"),
-            button("l", " " .. " Plugins", "<cmd> Lazy <cr>"),
+            button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
             button("q", " " .. " Quit", "<cmd> qa <cr>"),
             -- button("w", " " .. " Notification histories", "<cmd> Telescope notify <cr>"),
             -- button("m", "󰙭 " .. " Mason component", "<cmd> Mason <cr>"),
