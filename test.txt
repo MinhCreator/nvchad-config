@@ -1,0 +1,57 @@
+-- dashboard.section.header.val = {
+        --     {
+        --         type = "text",
+        --         val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
+        --         opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
+        --         opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
+        --         opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
+        --         opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
+        --         opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
+        --         opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
+        --     },
+        --     {
+        --         type = "text",
+        --         val = "<-|[  Fastest Code Editor  ]|->",
+        --         opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
+        --     },
+
+        --     {
+        --         type = "text",
+        --         val = greeting,
+        --         opts = {
+        --             position = "center",
+        --             hl = "getGreeting",
+        --         },
+        --     },
+
+        --     {
+        --         type = "padding",
+        --         val = 1,
+        --     },
+        --     --{
+        --     --type = "text",
+        --     --val = "𝙾𝚑 𝚝𝚑𝚎 𝚓𝚘𝚢 𝚘𝚏 𝚑𝚊𝚟𝚒𝚗𝚐 𝚢𝚘𝚞𝚛 𝚘𝚠𝚗 𝚌𝚞𝚜𝚝𝚘𝚖 𝚝𝚎𝚡𝚝 𝚎𝚍𝚒𝚝𝚘𝚛 :)",
+        --     --opts = { hl = "NeovimDashboardUsername", shrink_margin = false, position = "center" },
+        --     --},
+        -- }
+        -- stylua: ignore

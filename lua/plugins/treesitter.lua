@@ -22,7 +22,7 @@ return {
                 enable = true,
             },
             indent = { enable = true },
-            -- compilers = { "gcc" },
+            compilers = { vim.fn.getenv('CC'), "cc", "gcc", "clang", "cl", "zig" },
             auto_install = true, -- automatically install syntax support when entering new file type buffer
         },
         config = function(_, opts)

@@ -1,82 +1,5 @@
 math.randomseed(os.time())
 
-local db_theme_1 = {
-    {
-        type = "text",
-        val = " ███    ██ ███████  ██████  ██    ██ ██ ███    ███ ",
-        opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = " ████   ██ ██      ██    ██ ██    ██ ██ ████  ████ ",
-        opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = " ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██ ",
-        opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = " ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██ ",
-        opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = " ██   ████ ███████  ██████    ████   ██ ██      ██ ",
-        opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
-    },
-
-}
-local db_theme_2 = {
-    {
-        type = "text",
-        val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
-        opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
-        opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
-        opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
-        opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
-        opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
-    },
-    {
-        type = "text",
-        val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
-        opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
-    },
-}
-
-local function pick_color()
-    local r = math.random(0, 255)
-    local g = math.random(0, 255)
-    local b = math.random(0, 255)
-    return string.format("#%02X%02X%02X", r, g, b)
-end
-
-local function random_color()
-    local hex_col_def = "#"
-
-    for i = 1, 6 do
-        hex_col_def = hex_col_def .. string.format("%X", math.random(0, 15))
-    end
-
-    return hex_col_def
-end
 
 local function getGreeting(name)
     local tableTime = os.date("*t")
@@ -102,10 +25,8 @@ local function getGreeting(name)
     end
     return greetingsTable[greetingIndex] --{ fg = pick_color() }
 end
-
 local userName = "MinhCreatorVN"
 local greeting = "<|" .. getGreeting(userName) .. ", " .. userName .. "|>"
-
 local function check_greeting_color()
     local gr = getGreeting(userName)
 
@@ -122,10 +43,147 @@ local function check_greeting_color()
     end
 end
 
+
+local text = {
+    
+        {
+            type = "text",
+            val = "<-|[  Fastest Code Editor  ]|->",
+            opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = greeting,
+            opts = {
+                position = "center",
+                hl = "getGreeting",
+            },
+        },
+        {
+            type = "padding",
+            val = 0,
+        },
+    
+}
+
+local theme = {
+    theme_1 = {
+        {
+            type = "text",
+            val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
+            opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
+            opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
+            opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
+            opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
+            opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
+            opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "<-|[  Fastest Code Editor  ]|->",
+            opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = greeting,
+            opts = {
+                position = "center",
+                hl = "getGreeting",
+            },
+        },
+        -- {
+        --     type = "padding",
+        --     val = 0,
+        -- },
+    },
+    theme_2 = {
+        {
+            type = "text",
+            val = " ███    ██ ███████  ██████  ██    ██ ██ ███    ███ ",
+            opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = " ████   ██ ██      ██    ██ ██    ██ ██ ████  ████ ",
+            opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = " ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██ ",
+            opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = " ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██ ",
+            opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = " ██   ████ ███████  ██████    ████   ██ ██      ██ ",
+            opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = "<-|[  Fastest Code Editor  ]|->",
+            opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
+        },
+        {
+            type = "text",
+            val = greeting,
+            opts = {
+                position = "center",
+                hl = "getGreeting",
+            },
+        },
+        -- {
+        --     type = "padding",
+        --     val = 0,
+        -- },
+    }
+}
+
+
+
+local function pick_color()
+    local r = math.random(0, 255)
+    local g = math.random(0, 255)
+    local b = math.random(0, 255)
+    return string.format("#%02X%02X%02X", r, g, b)
+end
+
+local function random_color()
+    local hex_col_def = "#"
+
+    for i = 1, 6 do
+        hex_col_def = hex_col_def .. string.format("%X", math.random(0, 15))
+    end
+
+    return hex_col_def
+end
 return {
     "goolord/alpha-nvim",
     event = "VimEnter",
-    enabled = true,
+    -- enabled = true,
     init = false,
 
     opts = function()
@@ -137,107 +195,23 @@ return {
         header(0, "NeovimDashboardLogo3", { fg = "#FFD166" }) --{ fg = random_color() })
         header(0, "NeovimDashboardLogo4", { fg = "#06D6A0" }) --{ fg = random_color() })
         header(0, "NeovimDashboardLogo5", { fg = "#118AB2" }) --{ fg = random_color() })
-        header(0, "NeovimDashboardLogo6", { fg = "#073B4C" }) --{ fg = random_color() })
+        header(0, "NeovimDashboardLogo6", { fg = "#090B4C" }) --{ fg = random_color() })
         header(0, "CodeEditor", { fg = "#fa3628" })           --{ fg = "#fa3628" })
         header(0, "getGreeting", { fg = check_greeting_color() })
         dashboard.section.header.type = "group"
-        dashboard.section.header.val = {
-            db_theme_2[1],
-            db_theme_2[2],
-            db_theme_2[3],
-            db_theme_2[4],
-            db_theme_2[5],
-            db_theme_2[6],
-            {
-                type = "text",
-                val = "<-|[  Fastest Code Editor  ]|->",
-                opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
-            },
-
-            {
-                type = "text",
-                val = greeting,
-                opts = {
-                    position = "center",
-                    hl = "getGreeting",
-                },
-            },
-
-            {
-                type = "padding",
-                val = 0,
-            },
-        }
-        -- dashboard.section.header.val = {
-        --     {
-        --         type = "text",
-        --         val = "   ██╗      █████╗ ███████╗██╗   ██╗     ██████╗ ██████╗ ██████╗ ███████╗  ",
-        --         opts = { hl = "NeovimDashboardLogo1", shrink_margin = false, position = "center" },
-        --     },
-        --     {
-        --         type = "text",
-        --         val = "   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝  ",
-        --         opts = { hl = "NeovimDashboardLogo2", shrink_margin = false, position = "center" },
-        --     },
-        --     {
-        --         type = "text",
-        --         val = "   ██║     ███████║  ███╔╝  ╚████╔╝     ██║     ██║   ██║██║  ██║█████╗    ",
-        --         opts = { hl = "NeovimDashboardLogo3", shrink_margin = false, position = "center" },
-        --     },
-        --     {
-        --         type = "text",
-        --         val = "   ██║     ██╔══██║ ███╔╝    ╚██╔╝      ██║     ██║   ██║██║  ██║██╔══╝    ",
-        --         opts = { hl = "NeovimDashboardLogo4", shrink_margin = false, position = "center" },
-        --     },
-        --     {
-        --         type = "text",
-        --         val = "   ███████╗██║  ██║███████╗   ██║       ╚██████╗╚██████╔╝██████╔╝███████╗  ",
-        --         opts = { hl = "NeovimDashboardLogo5", shrink_margin = false, position = "center" },
-        --     },
-        --     {
-        --         type = "text",
-        --         val = "   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  ",
-        --         opts = { hl = "NeovimDashboardLogo6", shrink_margin = false, position = "center" },
-        --     },
-        --     {
-        --         type = "text",
-        --         val = "<-|[  Fastest Code Editor  ]|->",
-        --         opts = { hl = "CodeEditor", shrink_margin = false, position = "center" },
-        --     },
-
-        --     {
-        --         type = "text",
-        --         val = greeting,
-        --         opts = {
-        --             position = "center",
-        --             hl = "getGreeting",
-        --         },
-        --     },
-
-        --     {
-        --         type = "padding",
-        --         val = 1,
-        --     },
-        --     --{
-        --     --type = "text",
-        --     --val = "𝙾𝚑 𝚝𝚑𝚎 𝚓𝚘𝚢 𝚘𝚏 𝚑𝚊𝚟𝚒𝚗𝚐 𝚢𝚘𝚞𝚛 𝚘𝚠𝚗 𝚌𝚞𝚜𝚝𝚘𝚖 𝚝𝚎𝚡𝚝 𝚎𝚍𝚒𝚝𝚘𝚛 :)",
-        --     --opts = { hl = "NeovimDashboardUsername", shrink_margin = false, position = "center" },
-        --     --},
-        -- }
-        -- stylua: ignore
         local sectionVal = dashboard.section.buttons.val
         local button = dashboard.button
         dashboard.section.buttons.val = {
             button("n", " " .. " New file", "<cmd> ene | startinsert <cr>"),
-            button("f", " " .. " Smart Search", "<cmd>lua Snacks.picker.smart() <cr>"),
+            button("f", " " .. " Search", "<cmd>lua Snacks.picker.smart() <cr>"),
             button("s", " " .. " session", "<cmd> lua require('persistence').load() <cr>"),
             button("r", " " .. " Recent files", "<cmd>Telescope oldfiles <cr>"),
-            button("c", " " .. " Configure",
+            button("c", " " .. " Dotfiles",
                 "<cmd>lua require('telescope.builtin').find_files({prompt_title = 'Config File', cwd = vim.fn.stdpath('config')})<cr>"),
-            button("t", " " .. " Theme", "<cmd> lua require('nvchad.themes').open()<cr>"),
             button("k", " " .. " Keybindings", "<cmd>NvCheatsheet<cr>"),
             button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
             button("q", " " .. " Quit", "<cmd> qa <cr>"),
+            -- button("t", " " .. " Theme", "<cmd> lua require('nvchad.themes').open()<cr>"),
             -- button("w", " " .. " Notification histories", "<cmd> Telescope notify <cr>"),
             -- button("m", "󰙭 " .. " Mason component", "<cmd> Mason <cr>"),
             -- button("g", " " .. " Find text", "<cmd>Telescope live_grep <cr>"),
@@ -276,6 +250,7 @@ return {
             button.opts.hl_shortcut = "AlphaShortcut"
         end
         local dash = dashboard.section
+        dash.header.val = theme.theme_2
         dash.header.opts.hl = "AlphaHeader"
         dash.buttons.opts.hl = "AlphaButtons"
         dash.footer.opts.hl = "AlphaFooter"
